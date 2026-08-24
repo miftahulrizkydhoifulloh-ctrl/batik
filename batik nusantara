@@ -1,0 +1,846 @@
+```html
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Batik Nusantara - Koleksi batik Indonesia modern dan premium.">
+    <title>Batik Nusantara | Warisan Nusantara, Gaya Masa Kini</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f7f1e7;
+            color: #241b15;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            width: 100%;
+            display: block;
+        }
+
+        /* ================= NAVBAR ================= */
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(30, 20, 15, 0.95);
+            backdrop-filter: blur(10px);
+        }
+
+        .navbar {
+            max-width: 1200px;
+            margin: auto;
+            padding: 18px 25px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            color: #f5d28a;
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #f0c66d;
+        }
+
+        .nav-button {
+            background: #c89b4a;
+            color: #201711;
+            padding: 11px 18px;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 13px;
+            transition: 0.3s;
+        }
+
+        .nav-button:hover {
+            transform: translateY(-2px);
+            background: #e2bd72;
+        }
+
+        /* ================= HERO ================= */
+
+        .hero {
+            min-height: 100vh;
+            padding: 150px 25px 80px;
+            display: flex;
+            align-items: center;
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(27, 17, 12, 0.95),
+                    rgba(27, 17, 12, 0.68),
+                    rgba(27, 17, 12, 0.25)
+                ),
+                url("https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=1800&q=85")
+                center/cover;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            width: 100%;
+            margin: auto;
+        }
+
+        .hero-text {
+            max-width: 650px;
+            color: white;
+        }
+
+        .hero-label {
+            color: #e3bc70;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-size: 13px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 {
+            font-family: Georgia, serif;
+            font-size: clamp(45px, 8vw, 82px);
+            line-height: 1.05;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 span {
+            color: #e4bb69;
+        }
+
+        .hero p {
+            color: #eee;
+            font-size: 18px;
+            max-width: 560px;
+            margin-bottom: 35px;
+        }
+
+        .primary-button {
+            display: inline-block;
+            background: #c99b4d;
+            color: #211710;
+            padding: 14px 26px;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .primary-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+
+        /* ================= GENERAL ================= */
+
+        section {
+            padding: 90px 25px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title span {
+            color: #b27b28;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .section-title h2 {
+            font-family: Georgia, serif;
+            font-size: 42px;
+            margin-top: 8px;
+        }
+
+        .section-title p {
+            max-width: 600px;
+            margin: 12px auto 0;
+            color: #74675d;
+        }
+
+        /* ================= PRODUCTS ================= */
+
+        .products {
+            background: #fffaf2;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(54, 35, 20, 0.08);
+            transition: 0.35s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 18px 40px rgba(54, 35, 20, 0.16);
+        }
+
+        .product-image {
+            height: 320px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .product-image img {
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.06);
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-info h3 {
+            font-family: Georgia, serif;
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+
+        .product-info p {
+            color: #a2763d;
+            font-weight: bold;
+            margin-bottom: 18px;
+        }
+
+        .product-button {
+            display: inline-block;
+            width: 100%;
+            text-align: center;
+            border: 1px solid #b78a4a;
+            color: #8b622c;
+            padding: 10px;
+            border-radius: 25px;
+            font-size: 13px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .product-button:hover {
+            background: #8b622c;
+            color: white;
+        }
+
+        /* ================= ABOUT ================= */
+
+        .about {
+            background: #eadcc8;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 70px;
+            align-items: center;
+        }
+
+        .about-image {
+            height: 500px;
+            border-radius: 25px;
+            overflow: hidden;
+        }
+
+        .about-image img {
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .about-text span {
+            color: #9b6a2c;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 12px;
+        }
+
+        .about-text h2 {
+            font-family: Georgia, serif;
+            font-size: 44px;
+            line-height: 1.15;
+            margin: 12px 0 20px;
+        }
+
+        .about-text p {
+            color: #66594f;
+            margin-bottom: 18px;
+        }
+
+        /* ================= FEATURES ================= */
+
+        .features {
+            background: #241b15;
+            color: white;
+        }
+
+        .features .section-title h2 {
+            color: white;
+        }
+
+        .features .section-title p {
+            color: #c8bdb4;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .feature {
+            text-align: center;
+            padding: 30px 20px;
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 18px;
+            transition: 0.3s;
+        }
+
+        .feature:hover {
+            transform: translateY(-5px);
+            border-color: #c89b4a;
+        }
+
+        .feature-icon {
+            font-size: 35px;
+            margin-bottom: 15px;
+        }
+
+        .feature h3 {
+            color: #e2bd72;
+            margin-bottom: 8px;
+        }
+
+        .feature p {
+            color: #c6bbb2;
+            font-size: 14px;
+        }
+
+        /* ================= CTA ================= */
+
+        .cta {
+            text-align: center;
+            background:
+                linear-gradient(rgba(70, 43, 23, 0.88), rgba(70, 43, 23, 0.88)),
+                url("https://images.unsplash.com/photo-1583743814966-8936f37f3846?auto=format&fit=crop&w=1600&q=85")
+                center/cover;
+            color: white;
+        }
+
+        .cta h2 {
+            font-family: Georgia, serif;
+            font-size: clamp(35px, 5vw, 55px);
+            margin-bottom: 15px;
+        }
+
+        .cta p {
+            max-width: 600px;
+            margin: auto auto 30px;
+            color: #eee;
+        }
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            background: #17110d;
+            color: white;
+            padding: 55px 25px 25px;
+        }
+
+        .footer-grid {
+            max-width: 1200px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 50px;
+        }
+
+        .footer-brand h2 {
+            color: #e1bb70;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+        }
+
+        .footer-brand p {
+            color: #aaa09a;
+            max-width: 350px;
+        }
+
+        footer h3 {
+            margin-bottom: 15px;
+            color: #e1bb70;
+        }
+
+        footer ul {
+            list-style: none;
+        }
+
+        footer li {
+            margin-bottom: 9px;
+            color: #aaa09a;
+            font-size: 14px;
+        }
+
+        footer a:hover {
+            color: #e1bb70;
+        }
+
+        .copyright {
+            max-width: 1200px;
+            margin: 40px auto 0;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+            color: #777;
+            font-size: 13px;
+        }
+
+        /* ================= ANIMATION ================= */
+
+        .fade-up {
+            animation: fadeUp 1s ease both;
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ================= RESPONSIVE ================= */
+
+        @media (max-width: 900px) {
+            .nav-links {
+                display: none;
+            }
+
+            .product-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .feature-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 35px;
+            }
+
+            .about-image {
+                height: 400px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .navbar {
+                padding: 15px 18px;
+            }
+
+            .logo {
+                font-size: 17px;
+            }
+
+            .nav-button {
+                padding: 9px 13px;
+                font-size: 11px;
+            }
+
+            .hero {
+                padding: 130px 20px 70px;
+            }
+
+            .hero h1 {
+                font-size: 48px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            section {
+                padding: 70px 18px;
+            }
+
+            .section-title h2 {
+                font-size: 34px;
+            }
+
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .product-image {
+                height: 380px;
+            }
+
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-text h2 {
+                font-size: 35px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <header>
+        <nav class="navbar">
+            <a href="#beranda" class="logo">BATIK NUSANTARA</a>
+
+            <ul class="nav-links">
+                <li><a href="#beranda">Beranda</a></li>
+                <li><a href="#koleksi">Koleksi</a></li>
+                <li><a href="#tentang">Tentang Kami</a></li>
+                <li><a href="#kontak">Kontak</a></li>
+            </ul>
+
+            <a href="#koleksi" class="nav-button">Belanja Sekarang</a>
+        </nav>
+    </header>
+
+
+    <!-- HERO -->
+    <section class="hero" id="beranda">
+        <div class="hero-content">
+            <div class="hero-text fade-up">
+
+                <div class="hero-label">
+                    Authentic Indonesian Batik
+                </div>
+
+                <h1>
+                    Warisan Nusantara,
+                    <span>Gaya Masa Kini.</span>
+                </h1>
+
+                <p>
+                    Temukan koleksi batik Indonesia dengan motif autentik
+                    yang dipadukan dengan desain modern dan elegan.
+                </p>
+
+                <a href="#koleksi" class="primary-button">
+                    Lihat Koleksi →
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- PRODUCTS -->
+    <section class="products" id="koleksi">
+        <div class="container">
+
+            <div class="section-title">
+                <span>Koleksi Kami</span>
+                <h2>Koleksi Batik Pilihan</h2>
+                <p>
+                    Pilihan batik premium dengan motif Nusantara
+                    yang cocok untuk berbagai kesempatan.
+                </p>
+            </div>
+
+            <div class="product-grid">
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img
+                            src="https://images.unsplash.com/photo-1610030469668-8e9f7f9a8e1d?auto=format&fit=crop&w=800&q=80"
+                            alt="Batik Parang Modern">
+                    </div>
+
+                    <div class="product-info">
+                        <h3>Batik Parang Modern</h3>
+                        <p>Rp249.000</p>
+                        <a href="#" class="product-button">Beli Sekarang</a>
+                    </div>
+                </div>
+
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img
+                            src="https://images.unsplash.com/photo-1594938298603-c8148c4dae35?auto=format&fit=crop&w=800&q=80"
+                            alt="Batik Kawung Premium">
+                    </div>
+
+                    <div class="product-info">
+                        <h3>Batik Kawung Premium</h3>
+                        <p>Rp299.000</p>
+                        <a href="#" class="product-button">Beli Sekarang</a>
+                    </div>
+                </div>
+
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img
+                            src="https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=800&q=80"
+                            alt="Batik Mega Mendung">
+                    </div>
+
+                    <div class="product-info">
+                        <h3>Batik Mega Mendung</h3>
+                        <p>Rp279.000</p>
+                        <a href="#" class="product-button">Beli Sekarang</a>
+                    </div>
+                </div>
+
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img
+                            src="https://images.unsplash.com/photo-1610652492500-ded2d6c7c7a8?auto=format&fit=crop&w=800&q=80"
+                            alt="Batik Sekar Jagad">
+                    </div>
+
+                    <div class="product-info">
+                        <h3>Batik Sekar Jagad</h3>
+                        <p>Rp319.000</p>
+                        <a href="#" class="product-button">Beli Sekarang</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ABOUT -->
+    <section class="about" id="tentang">
+        <div class="container">
+
+            <div class="about-grid">
+
+                <div class="about-image">
+                    <img
+                        src="https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?auto=format&fit=crop&w=1000&q=85"
+                        alt="Kain batik Nusantara">
+                </div>
+
+                <div class="about-text">
+
+                    <span>Tentang Kami</span>
+
+                    <h2>
+                        Cerita di Balik
+                        Setiap Motif
+                    </h2>
+
+                    <p>
+                        Batik Nusantara hadir untuk memperkenalkan keindahan
+                        batik Indonesia dengan sentuhan modern.
+                    </p>
+
+                    <p>
+                        Kami menghadirkan produk berkualitas dengan motif khas
+                        Nusantara yang cocok digunakan untuk berbagai kesempatan,
+                        mulai dari aktivitas sehari-hari hingga acara spesial.
+                    </p>
+
+                    <a href="#kontak" class="primary-button">
+                        Kenali Kami
+                    </a>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- FEATURES -->
+    <section class="features">
+        <div class="container">
+
+            <div class="section-title">
+                <span>Kenapa Kami?</span>
+                <h2>Keunggulan Batik Nusantara</h2>
+                <p>
+                    Kami mengutamakan kualitas, kenyamanan, dan keaslian
+                    dalam setiap produk.
+                </p>
+            </div>
+
+            <div class="feature-grid">
+
+                <div class="feature">
+                    <div class="feature-icon">✦</div>
+                    <h3>Kualitas Premium</h3>
+                    <p>
+                        Material nyaman dengan kualitas terbaik
+                        untuk penggunaan sehari-hari.
+                    </p>
+                </div>
+
+                <div class="feature">
+                    <div class="feature-icon">◆</div>
+                    <h3>Motif Autentik</h3>
+                    <p>
+                        Terinspirasi dari kekayaan budaya
+                        dan motif asli Nusantara.
+                    </p>
+                </div>
+
+                <div class="feature">
+                    <div class="feature-icon">◇</div>
+                    <h3>Desain Modern</h3>
+                    <p>
+                        Perpaduan tradisional dan modern
+                        untuk gaya masa kini.
+                    </p>
+                </div>
+
+                <div class="feature">
+                    <div class="feature-icon">✓</div>
+                    <h3>Pengiriman Aman</h3>
+                    <p>
+                        Produk dikemas dengan aman dan
+                        siap dikirim ke seluruh Indonesia.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- CTA -->
+    <section class="cta" id="kontak">
+        <div class="container">
+
+            <h2>
+                Saatnya Tampil Elegan dengan Batik.
+            </h2>
+
+            <p>
+                Pilih motif favoritmu dan jadikan batik sebagai
+                bagian dari gaya modernmu.
+            </p>
+
+            <a href="#koleksi" class="primary-button">
+                Belanja Sekarang →
+            </a>
+
+        </div>
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <div class="footer-grid">
+
+            <div class="footer-brand">
+                <h2>BATIK NUSANTARA</h2>
+
+                <p>
+                    Melestarikan budaya, menghadirkan gaya.
+                    Batik Indonesia untuk generasi masa kini.
+                </p>
+            </div>
+
+            <div>
+                <h3>Navigasi</h3>
+
+                <ul>
+                    <li><a href="#beranda">Beranda</a></li>
+                    <li><a href="#koleksi">Koleksi</a></li>
+                    <li><a href="#tentang">Tentang Kami</a></li>
+                    <li><a href="#kontak">Kontak</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h3>Hubungi Kami</h3>
+
+                <ul>
+                    <li>Instagram: @batiknusantara</li>
+                    <li>WhatsApp: 0812-3456-7890</li>
+                    <li>Email: hello@batiknusantara.id</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="copyright">
+            © 2026 Batik Nusantara. All Rights Reserved.
+        </div>
+
+    </footer>
+
+</body>
+</html>
+```
